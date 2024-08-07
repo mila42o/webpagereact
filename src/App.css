@@ -1,38 +1,105 @@
-.App {
+h1 {
+  font-size: 60px;
   text-align: center;
+  color: #513e06;
+  text-shadow: 2px 2px 3px black;
+  margin-top: 15px;
+  margin-bottom: 25px;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.linkowe{
+  font-size: 15px;
+  margin-left: 75%;
+  color: #513e06;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.linkowe:hover{
+  color: #000000;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+hr{
+  background-color: #000000;
+  border-color: #000000;
+  height: 2px;
+}
+.class1 {
+  width: 25%;
+  margin-right: 10px;
+}
+.class2 {
+  width: 80%;
+  max-width: 400px;
+  height: 40px;
+  border-radius: 25px;
+  border: 2px solid black;
+  font-size:16px;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  margin-left: 15px;
+}
+.class3{
+  border-radius: 25px;
+  width: 15%;
+  max-width: 80px;
+  min-width: 60px;
+  height: 40px;
+  border: 2px solid black;
+  font-size:16px;
+  cursor: pointer;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 75%; 
+}
+.inp{
+	width: 80%;
+}
+.container {
+    display: flex; 
+    align-items: center;
+	margin-top: 20px;
+}
+.class3:hover{
+	background-color:gray;
+	color:white;
+}
+.class4{
+  background: #513e06;
+  width: 60%;
+  border-radius: 25px;
+  border-color: black;
+  border-width: 4px;
+  margin: auto;
+}
+.class5{
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  display: flex;
 }
-
-.App-link {
-  color: #61dafb;
+.butoni{
+  background-color: #cdca89;
+  border-radius: 25px;
+  width: 30%;
+  min-width: 100px;
+  height: 30px;
+  border: 2px solid black;
+  font-size:16px;
+  cursor: pointer;
+  margin: auto;
+  text-decoration: none;
+  text-align: center;
+  color: #000000;
+  padding-top: 10px;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.butoni:hover{
+	background-color:gray;
+	color:white;
+}
+.ikonki{
+  width: 20px;
+  height: 20px;
+  margin: 15px;
+}
+.items{
+  align-items: center;
+  display: flex;
+}
+.inf{
+  font-size: 16px;
+  color: black;
 }
