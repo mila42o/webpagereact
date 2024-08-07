@@ -11,7 +11,15 @@ h1 {
   margin-left: 75%;
   color: #513e06;
 }
+.linkowe2{
+  font-size: 15px;
+  margin-left: 85%;
+  color: #513e06;
+}
 .linkowe:hover{
+  color: #000000;
+}
+.linkowe2:hover{
   color: #000000;
 }
 hr{
