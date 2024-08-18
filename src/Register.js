@@ -18,6 +18,10 @@ function Register({ switchToLogin }){
           [e.target.name]: e.target.value
         });
       };
+      
+      const handleSelectChange = (value) => {
+        setFormData({ ...formData, country: value });
+      };
     
       const handleSubmit = async (e) => {
         e.preventDefault();
@@ -60,7 +64,7 @@ function Register({ switchToLogin }){
                     <option value="0">Admin</option>
                     <option value="1">User</option>
                 </select>
-                <CountryList name="country" onChange={handleChange}/>
+                <CountryList onChange={handleSelectChange}/>
                 <button className="class3" type="submit">Submit</button>
             </form>
             </div>
