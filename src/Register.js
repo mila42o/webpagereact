@@ -3,7 +3,7 @@ import CountryList from './CountryList';
 import two from './img/2.webp';
 import React, { useState } from 'react';
 
-function Register({ switchToLogin }){
+function Register({ onRegisterSuccess, switchToLogin }){
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -40,7 +40,9 @@ function Register({ switchToLogin }){
           }
     
           const data = await response.json();
-          console.log('Success:', data);
+          if(data){
+            onRegisterSuccess();
+          }
         } catch (error) {
           console.error('Error:', error);
         }

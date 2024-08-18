@@ -2,20 +2,22 @@ import React, { useState } from 'react';
 import './App.css';
 import Login from './Login.js';
 import Register from './Register.js';
+import Project from './Project.js';
 
 function App() {
-  const [view, setView] = useState('login');
+  const [currentPage, setCurrentPage] = useState('login');
 
-  const switchToLogin = () => setView('login');
-  const switchToRegister = () => setView('register');
+  const switchToLogin = () => setCurrentPage('login');
+  const switchToRegister = () => setCurrentPage('register');
+  const handleSuccess = () => {
+    setCurrentPage('project'); 
+  };
 
   return (
     <div>
-      {view === 'login' ? (
-        <Login switchToRegister={switchToRegister} />
-      ) : (
-        <Register switchToLogin={switchToLogin} />
-      )}
+      {currentPage === 'login' && <Login onLoginSuccess={handleSuccess} switchToRegister={switchToRegister} />}
+      {currentPage === 'register' && <Register onRegisterSuccess={handleSuccess} switchToLogin={switchToLogin} />}
+      {currentPage === 'project' && <Project />}
     </div>
   );
 }

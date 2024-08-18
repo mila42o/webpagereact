@@ -2,7 +2,7 @@ import './App.css';
 import one from './img/1.png';
 import React, { useState } from 'react';
 
-function Login({ switchToRegister }) {
+function Login({ onLoginSuccess, switchToRegister }) {
     
   const [formData, setFormData] = useState({
     name: '',
@@ -33,7 +33,9 @@ function Login({ switchToRegister }) {
       }
 
       const data = await response.json();
-      console.log('Success:', data);
+      if(data){
+        onLoginSuccess();
+      }
     } catch (error) {
       console.error('Error:', error);
     }
