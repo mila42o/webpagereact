@@ -1,7 +1,7 @@
 import './App.css';
 import CountryList from './CountryList';
 import two from './img/2.webp';
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 function Register({ switchToLogin }){
     const [formData, setFormData] = useState({
@@ -49,18 +49,18 @@ function Register({ switchToLogin }){
             <div className="container">
             <img className="class1" src={two} alt="cat icon" />
             <form className="inp" id="inp2" onSubmit={handleSubmit}>
-                <input className="class2" type="text" placeholder=" Enter email" id="login" name="login" 
-                value={formData.name} onChange={handleChange}/>
-                <input className="class2" type="text" placeholder=" Enter username" id="usern" name="usern" 
+                <input className="class2" type="text" placeholder=" Enter email" id="email" name="email" 
                 value={formData.email} onChange={handleChange}/>
+                <input className="class2" type="text" placeholder=" Enter username" id="name" name="name" 
+                value={formData.name} onChange={handleChange}/>
                 <input className="class2" type="password" placeholder=" Enter your password" id="pas" name="pas" 
                 value={formData.pas} onChange={handleChange}/>
-                <select className="class2" id="rolq" name="rolq" value={formData.role} onChange={handleChange}>
+                <select className="class2" id="role" name="role" value={formData.role} onChange={handleChange}>
                     <option value=""> Choose a role</option>
                     <option value="0">Admin</option>
                     <option value="1">User</option>
                 </select>
-                <CountryList />
+                <CountryList name="country" onChange={handleChange}/>
                 <button className="class3" type="submit">Submit</button>
             </form>
             </div>

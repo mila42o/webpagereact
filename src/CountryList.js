@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 
-function CountryList(){
+function CountryList({ onChange }){
     const [countries, setCountries] = useState([]);
     const [selectedCountry, setSelectedCountry] = useState('');
+    const handleChange = (e) => {
+        setSelectedCountry(e.target.value);
+        onChange(e.target.value);
+      };
 
     useEffect(() => { fetchCountries(); }, []);
 
@@ -18,7 +22,7 @@ function CountryList(){
     };
     return (
         <div>
-        <select value={selectedCountry} onChange={(e) => setSelectedCountry(e.target.value)} className="class2" id="country" name="country" required>
+        <select value={selectedCountry} onChange={handleChange} className="class2" id="country" name="country" required>
             <option value="">Select a country</option>
             {countries.map((country) => ( <option key={country.name} value={country.name}> {country.name} </option> ))}
         </select>
