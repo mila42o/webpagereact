@@ -4,13 +4,16 @@ import Create from './Create.js';
 import OpenOld from './OpenOld.js';
 import Profile from './Profile.js';
 
-function Project({switchToLogin}){
+function Project({switchToLogin, userID}){
     const [currentPage, setCurrentPage] = useState('create');
 
     const switchToCreate = () => setCurrentPage('create');
     const switchToOld = () => setCurrentPage('old');
     const switchToProfile = () => setCurrentPage('profile');
-    
+    const handleSuccess = () => {
+        setCurrentPage('old'); 
+      };
+    let user = userID;
     return (
         <div>
             <h1>Project page</h1>
@@ -21,7 +24,7 @@ function Project({switchToLogin}){
                 <p onClick={switchToProfile} className="butoni">View my profile</p>
             </div>
             <hr />        
-            {currentPage === 'create' && <Create />}
+            {currentPage === 'create' && <Create onSuccess={handleSuccess} user={user} />}
             {currentPage === 'old' && <OpenOld />}
             {currentPage === 'profile' && <Profile />}
             <hr />

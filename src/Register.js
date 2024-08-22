@@ -3,7 +3,11 @@ import CountryList from './CountryList';
 import two from './img/2.webp';
 import React, { useState } from 'react';
 
-function Register({ onRegisterSuccess, switchToLogin }){
+function Register({ onRegisterSuccess, switchToLogin, onUserIDChange }){
+    let userID = '';
+    const sendUserIDToParent = () => {
+      onUserIDChange(userID);
+    };
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -40,7 +44,9 @@ function Register({ onRegisterSuccess, switchToLogin }){
           }
     
           const data = await response.json();
-          if(data){
+          userID = data.id;
+          sendUserIDToParent(userID);
+          if(data.yon){
             onRegisterSuccess();
           }else{
             alert("This email is already used!");

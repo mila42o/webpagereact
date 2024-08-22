@@ -2,8 +2,11 @@ import './App.css';
 import one from './img/1.png';
 import React, { useState } from 'react';
 
-function Login({ onLoginSuccess, switchToRegister }) {
-    
+function Login({ onLoginSuccess, switchToRegister, onUserIDChange }) {
+  let userID = '';
+  const sendUserIDToParent = () => {
+    onUserIDChange(userID);
+  };  
   const [formData, setFormData] = useState({
     name: '',
     pas: ''
@@ -33,7 +36,9 @@ function Login({ onLoginSuccess, switchToRegister }) {
       }
 
       const data = await response.json();
-      if(data){
+      userID = data.id;
+      sendUserIDToParent(userID);
+      if(data.yon){
         onLoginSuccess();
       }else{
         alert("Login incorrect.");

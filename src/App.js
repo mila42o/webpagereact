@@ -12,12 +12,17 @@ function App() {
   const handleSuccess = () => {
     setCurrentPage('project'); 
   };
+  const [userID, setUserID] = useState(null);
+
+  const handleUserID = (id) => {
+      setUserID(id);
+  };
 
   return (
     <div>
-      {currentPage === 'login' && <Login onLoginSuccess={handleSuccess} switchToRegister={switchToRegister} />}
-      {currentPage === 'register' && <Register onRegisterSuccess={handleSuccess} switchToLogin={switchToLogin} />}
-      {currentPage === 'project' && <Project switchToLogin={switchToLogin} />}
+      {currentPage === 'login' && <Login onLoginSuccess={handleSuccess} switchToRegister={switchToRegister} onUserIDChange={handleUserID} />}
+      {currentPage === 'register' && <Register onRegisterSuccess={handleSuccess} switchToLogin={switchToLogin} onUserIDChange={handleUserID} />}
+      {currentPage === 'project' && <Project switchToLogin={switchToLogin} userID={userID} />}
     </div>
   );
 }
