@@ -16,10 +16,18 @@ h1 {
   margin-left: 85%;
   color: #513e06;
 }
+.linkowe3{
+  font-size: 15px;
+  margin-left: 80%;
+  color: #513e06;
+}
 .linkowe:hover{
   color: #000000;
 }
 .linkowe2:hover{
+  color: #000000;
+}
+.linkowe3:hover{
   color: #000000;
 }
 hr{
