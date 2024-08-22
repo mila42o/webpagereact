@@ -17,7 +17,7 @@ function App() {
     <div>
       {currentPage === 'login' && <Login onLoginSuccess={handleSuccess} switchToRegister={switchToRegister} />}
       {currentPage === 'register' && <Register onRegisterSuccess={handleSuccess} switchToLogin={switchToLogin} />}
-      {currentPage === 'project' && <Project />}
+      {currentPage === 'project' && <Project switchToLogin={switchToLogin} />}
     </div>
   );
 }

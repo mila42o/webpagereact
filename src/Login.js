@@ -35,6 +35,8 @@ function Login({ onLoginSuccess, switchToRegister }) {
       const data = await response.json();
       if(data){
         onLoginSuccess();
+      }else{
+        alert("Login incorrect.");
       }
     } catch (error) {
       console.error('Error:', error);

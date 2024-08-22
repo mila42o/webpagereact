@@ -42,6 +42,8 @@ function Register({ onRegisterSuccess, switchToLogin }){
           const data = await response.json();
           if(data){
             onRegisterSuccess();
+          }else{
+            alert("This email is already used!");
           }
         } catch (error) {
           console.error('Error:', error);
