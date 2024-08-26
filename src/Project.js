@@ -26,7 +26,7 @@ function Project({switchToLogin, userID}){
             <hr />        
             {currentPage === 'create' && <Create onSuccess={handleSuccess} user={user} />}
             {currentPage === 'old' && <OpenOld />}
-            {currentPage === 'profile' && <Profile />}
+            {currentPage === 'profile' && <Profile user={user} />}
             <hr />
             <p onClick={switchToLogin} className="linkowe3">log out of my account</p>
         </div>
