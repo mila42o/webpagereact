@@ -39,18 +39,22 @@ function OpenOld({user}){
                 <thead>
                     <tr>
                         <th>ProjectNo</th>
-                        <th className="but">
-                            <h4>ProjectName</h4>
-                            <div className="sort-buttons">
-                            <span className="sort-button">▲</span>
-                            <span className="sort-button">▼</span>
+                        <th>
+                            <div className="but">
+                                <h4>ProjectName</h4>
+                                <div className="sort-buttons">
+                                <span className="sort-button">▲</span>
+                                <span className="sort-button">▼</span>
+                                </div>
                             </div>
                         </th>
-                        <th className="but">
-                            <h4>Author</h4>
-                            <div className="sort-buttons">
-                            <span className="sort-button">▲</span>
-                            <span className="sort-button">▼</span>
+                        <th> 
+                            <div className="but">
+                                <h4>Author</h4>
+                                <div className="sort-buttons">
+                                <span className="sort-button">▲</span>
+                                <span className="sort-button">▼</span>
+                                </div>
                             </div>
                         </th>
                         <th>Edit</th>
