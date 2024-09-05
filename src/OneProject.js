@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import six from './img/6.webp';
 
-function OneProject({no,projectname,author}){
+function OneProject({no,projectname,author,projectid,onEdit}){
     return (
         
         <tr>
@@ -10,7 +10,7 @@ function OneProject({no,projectname,author}){
             <td>{projectname}</td>
             <td>{author}</td>
             <td>
-                <img className="hiksche" src={six} alt="editicon" />
+                <img className="hiksche" src={six} alt="editicon" onClick={() => onEdit(projectid)} />
             </td>
         </tr>
         

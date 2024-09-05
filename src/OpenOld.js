@@ -1,10 +1,19 @@
 import React, {useState, useEffect} from 'react';
 import './App.css';
 import OneProject from './OneProject';
+import Edit from './Edit';
 
 function OpenOld({user}){
     const [data, setData] = useState(null); 
-    
+    const [editingProject, setEditingProject] = useState(null);
+
+    const handleEditClick = (project) => {
+        setEditingProject(project);
+    };
+    const handleCancel = () => {
+        setEditingProject(null);
+    };
+
     useEffect(() => {
         const rolq = async () => {
             try {
@@ -35,37 +44,43 @@ function OpenOld({user}){
     }
     return (
         <div>
-            <table>
-                <thead>
-                    <tr>
-                        <th>ProjectNo</th>
-                        <th>
-                            <div className="but">
-                                <h4>ProjectName</h4>
-                                <div className="sort-buttons">
-                                <span className="sort-button">▲</span>
-                                <span className="sort-button">▼</span>
+            {editingProject ? (
+                <Edit project={editingProject} onCancel={handleCancel} />
+            ) : (
+            <div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ProjectNo</th>
+                            <th>
+                                <div className="but">
+                                    <h4>ProjectName</h4>
+                                    <div className="sort-buttons">
+                                    <span className="sort-button">▲</span>
+                                    <span className="sort-button">▼</span>
+                                    </div>
                                 </div>
-                            </div>
-                        </th>
-                        <th> 
-                            <div className="but">
-                                <h4>Author</h4>
-                                <div className="sort-buttons">
-                                <span className="sort-button">▲</span>
-                                <span className="sort-button">▼</span>
+                            </th>
+                            <th> 
+                                <div className="but">
+                                    <h4>Author</h4>
+                                    <div className="sort-buttons">
+                                    <span className="sort-button">▲</span>
+                                    <span className="sort-button">▼</span>
+                                    </div>
                                 </div>
-                            </div>
-                        </th>
-                        <th>Edit</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {data.map((row, index) => (
-                        <OneProject key={index} no={row.id} projectname={row.projectname} author={row.author} />
-                    ))}
-                </tbody>
-            </table>
+                            </th>
+                            <th>Edit</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {data.map((row, index) => (
+                            <OneProject key={index} no={row.id} projectname={row.projectname} author={row.author} projectid={row.projectid} onEdit={handleEditClick}/>
+                        ))}
+                    </tbody>
+                </table>
+            </div>
+            )}
         </div>
     );
 }
