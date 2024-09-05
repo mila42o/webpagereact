@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import one from './img/6.webp';
 import two from './img/4.png';
 import three from './img/x.png';
 
-const Edit = ({ projectid, onCancel }) => {
+const Edit = ({ user, projectid, onCancel }) => {
     const [isOpen, setIsOpen] = useState(false);
     const changeOpen = () => {
         setIsOpen(!isOpen);
@@ -13,11 +13,40 @@ const Edit = ({ projectid, onCancel }) => {
     const changeOpen2 = () => {
         setIsOpen2(!isOpen2);
     };
+    const [data, setData] = useState({
+        otherusers: [],
+        addedusers: [],
+        projectname: ''
+    });
 
-
+    useEffect(() => {
+        fetch('https://moidomaintest.freehostia.com/api/users.php', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+              projectid: projectid,
+              user: user
+            })
+        })
+          .then(response => response.json())
+          .then(jsonData => {
+            setData({
+              otherusers: jsonData.otherusers,
+              addedusers: jsonData.addedusers,
+              projectname: jsonData.projectname
+            });
+          })
+          .catch(error => console.error('Error fetching data:', error));
+    }, []);
+    
+    if (!data) {
+        return <div>Loading...</div>; 
+    }
     return (
         <div className="class4">
-            <h2>Project Name:{projectid}</h2>
+            <h2>Project Name:{data.projectname}</h2>
             <hr />
                 <div className="items">
                     <img className="ikonki2" src={one} alt="editicon" onClick={changeOpen}/>
