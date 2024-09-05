@@ -51,6 +51,12 @@ margin-left: 4px;
   margin-left: 80%;
   color: #513e06;
 }
+.linkowe4{
+  font-size: 15px;
+  margin-left: 70%;
+  padding-bottom: 13px;
+  color: #000000;
+}
 .linkowe:hover{
   color: #000000;
 }
@@ -59,6 +65,18 @@ margin-left: 4px;
 }
 .linkowe3:hover{
   color: #000000;
+}
+.linkowe4:hover{
+  color: #cdca89;
+}
+h2{
+  padding-top: 25px;
+  text-align: center;
+}
+.ikonki2{
+  width: 30px;
+  height: 20px;
+  margin: 10px;
 }
 hr{
   background-color: #000000;
