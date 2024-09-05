@@ -45,7 +45,7 @@ function OpenOld({user}){
     return (
         <div>
             {editingProject ? (
-                <Edit project={editingProject} onCancel={handleCancel} />
+                <Edit projectid={editingProject} onCancel={handleCancel} />
             ) : (
             <div>
                 <table>
