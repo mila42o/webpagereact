@@ -19,6 +19,22 @@ const Edit = ({ user, projectid, onCancel }) => {
         projectname: ''
     });
 
+    const deleteProject = () => {
+        const result = window.confirm("Do you want to delete this project?!");
+        if (result === true) {
+            fetch('https://moidomaintest.freehostia.com/api/deleteproject.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    projectid: projectid
+                })
+            })
+            .then(onCancel)
+            .catch(error => console.error('Error fetching data:', error));
+        }
+    };
     useEffect(() => {
         fetch('https://moidomaintest.freehostia.com/api/users.php', {
             method: 'POST',
@@ -112,7 +128,7 @@ const Edit = ({ user, projectid, onCancel }) => {
                 )}
                 <hr />
                 <div className="items">
-                    <img className="ikonki" src={three} alt="deleteicon" />
+                    <img className="ikonki" src={three} alt="deleteicon" onClick={deleteProject} />
                     <p className="inf" >Delete project</p>
                 </div>
                 <hr />
