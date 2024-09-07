@@ -55,7 +55,7 @@ const Edit = ({ user, projectid, onCancel }) => {
             });
           })
           .catch(error => console.error('Error fetching data:', error));
-    }, []);
+    });
     
     const [formChangeName, setFormChangeName] = useState({
         newprojectname: '',

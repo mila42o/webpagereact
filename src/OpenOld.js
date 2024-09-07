@@ -39,6 +39,25 @@ function OpenOld({user}){
 
         rolq(); 
     }, [user]);
+
+    const sortByAsc = (property) => {
+        const sortedData = [...data].sort((a, b) => {
+        if (a[property] < b[property]) return -1;
+        if (a[property] > b[property]) return 1;
+        return 0;
+        });
+        setData(sortedData);
+    };
+
+    const sortByDesc = (property) => {
+        const sortedData = [...data].sort((a, b) => {
+        if (a[property] < b[property]) return 1;
+        if (a[property] > b[property]) return -1;
+        return 0;
+        });
+        setData(sortedData);
+    };
+
     if (!data) {
         return <div>Loading...</div>; 
     }
@@ -56,8 +75,8 @@ function OpenOld({user}){
                                 <div className="but">
                                     <h4>ProjectName</h4>
                                     <div className="sort-buttons">
-                                    <span className="sort-button">▲</span>
-                                    <span className="sort-button">▼</span>
+                                    <span className="sort-button" onClick={() => sortByAsc('projectname')}>▲</span>
+                                    <span className="sort-button" onClick={() => sortByDesc('projectname')}>▼</span>
                                     </div>
                                 </div>
                             </th>
@@ -65,8 +84,8 @@ function OpenOld({user}){
                                 <div className="but">
                                     <h4>Author</h4>
                                     <div className="sort-buttons">
-                                    <span className="sort-button">▲</span>
-                                    <span className="sort-button">▼</span>
+                                    <span className="sort-button" onClick={() => sortByAsc('author')}>▲</span>
+                                    <span className="sort-button" onClick={() => sortByDesc('author')}>▼</span>
                                     </div>
                                 </div>
                             </th>
